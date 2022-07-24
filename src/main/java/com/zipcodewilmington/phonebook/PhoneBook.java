@@ -39,18 +39,19 @@ public class PhoneBook {
     public Boolean hasEntry(String name) {
         if (phonebook.containsKey(name)) {
             return true;
+        } else {
+            return false;
         }
-        return false;
     }
 
     public List<String> lookup(String name) {
         return phonebook.get(name);
     }
 
-    public String reverseLookup(String phoneNum) {
+    public String reverseLookup(String phoneNumber) {
         for ( Map.Entry<String, List<String>> entry : phonebook.entrySet() ) {
             for ( String number : entry.getValue() ) {
-                if ( number.equals(phoneNum) ) {
+                if ( number.equals(phoneNumber) ) {
                     return entry.getKey();
                 }
             }
