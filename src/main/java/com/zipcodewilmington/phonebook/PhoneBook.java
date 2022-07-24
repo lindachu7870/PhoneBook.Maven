@@ -47,15 +47,22 @@ public class PhoneBook {
         return phonebook.get(name);
     }
 
-    public String reverseLookup(String phoneNumber)  {
+    public String reverseLookup(String phoneNum) {
+        for ( Map.Entry<String, List<String>> entry : phonebook.entrySet() ) {
+            for ( String number : entry.getValue() ) {
+                if ( number.equals(phoneNum) ) {
+                    return entry.getKey();
+                }
+            }
+        }
         return null;
     }
 
     public List<String> getAllContactNames() {
-        return null;
+        return new LinkedList<>(this.phonebook.keySet());
     }
 
     public Map<String, List<String>> getMap() {
-        return null;
+        return phonebook;
     }
 }
